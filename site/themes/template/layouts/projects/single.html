@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-12 text-gray-100">
+  <a href="{{ .CurrentSection.RelPermalink }}" class="text-sm text-indigo-300 underline">← Projects</a>
+  <h1 class="mt-4 text-2xl sm:text-3xl md:text-4xl tracking-wide text-white">{{ .Title }}</h1>
+  {{ with .Content }}
+  <div class="md-surface mt-6 border border-gray-800/70 bg-[#070709] rounded-sm p-4 sm:p-6">
+    <div class="md-content">{{ . }}</div>
+  </div>
+  {{ end }}
+</main>
+{{ end }}
