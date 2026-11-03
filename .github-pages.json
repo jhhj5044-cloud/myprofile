@@ -1,0 +1,13 @@
+{
+  "config": "hugo.toml,pages.json",
+  "theme": "template",
+  "sample": "example",
+  "version": "0.167.0",
+  "slug": "enervoid-theme",
+  "npm": [],
+  "asset_build": [],
+  "generator": "3.1",
+  "repo": "https://github.com/jhhj5044-cloud/myprofile.git",
+  "baseURL": "https://jhhj5044-cloud.github.io/myprofile/",
+  "audited": true
+}
