@@ -1,7 +1,9 @@
 {{ define "main" }}
 <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-12 text-gray-100">
   <a href="{{ .CurrentSection.RelPermalink }}" class="text-sm text-indigo-300 underline">← Projects</a>
-  {{ if .Params.video }}
+  {{ if eq .Params.projectTemplate "unity-study" }}
+  {{ partial "unity-project.html" . }}
+  {{ else if .Params.video }}
   <article class="mx-auto mt-6 max-w-5xl">
     <header class="rounded-2xl border border-gray-800 bg-[#070709] p-4 sm:p-6">
       <span class="rounded-full bg-white/10 px-2 py-1 text-xs font-medium text-gray-300">01 · 프로젝트 소개</span>

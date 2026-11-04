@@ -1,0 +1,43 @@
+<article class="mx-auto mt-6 max-w-5xl rounded-2xl border border-gray-800 bg-[#070709] p-4 sm:p-6">
+  <header>
+    <h1 class="text-2xl font-semibold text-white sm:text-3xl">{{ .Params.detailTitle }}</h1>
+    <p class="mt-2 text-sm text-gray-400">{{ .Params.subtitle }}</p>
+    <div class="mt-4 grid aspect-video place-items-center rounded-xl bg-white/5 text-center">
+      <div>
+        <p class="text-sm font-medium text-gray-200">게임 플레이 영상</p>
+        <p class="mt-1 text-xs text-gray-400">영상 준비 중</p>
+      </div>
+    </div>
+  </header>
+  <div class="divide-y divide-gray-800">
+    <section class="py-5">
+      <h2 class="text-sm font-semibold text-white">01. 프로젝트 소개</h2>
+      <p class="mt-3 text-sm leading-relaxed text-gray-300">4주간의 Unity 기초반 스터디에서 진행한 첫 게임 개발 프로젝트다. Vampire Survivors를 참고해 2D 서바이벌 게임의 기본 구조를 만들어 보았다.</p>
+    </section>
+    <section class="py-5">
+      <h2 class="text-sm font-semibold text-white">02. 4주간 배운 기술</h2>
+      <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+        {{ range .Params.skills }}
+        <li class="rounded-lg bg-white/5 px-3 py-3 text-sm text-gray-200">{{ . }}</li>
+        {{ end }}
+      </ul>
+    </section>
+    <section class="py-5">
+      <h2 class="text-sm font-semibold text-white">03. 제작 과정</h2>
+      <div class="mt-3 grid gap-3 sm:grid-cols-2">
+        <figure>
+          <a href="{{ .Params.cover | relURL }}" target="_blank" rel="noopener" class="block rounded-lg focus-visible:outline focus-visible:outline-indigo-300">
+            <img src="{{ .Params.cover | relURL }}" alt="{{ .Params.coverAlt }}" width="{{ .Params.coverWidth }}" height="{{ .Params.coverHeight }}"
+              class="block aspect-[4/3] w-full rounded-lg bg-white/5 object-contain" loading="lazy">
+          </a>
+          <figcaption class="mt-2 text-xs text-gray-400">Unity 편집 화면 · 새 탭에서 원본 보기</figcaption>
+        </figure>
+        <div class="grid aspect-[4/3] place-items-center rounded-lg bg-white/5 px-3 text-center text-sm text-gray-400">게임 실행 화면 준비 중</div>
+      </div>
+    </section>
+    <section class="pt-5">
+      <h2 class="text-sm font-semibold text-white">04. 배운 점과 앞으로의 방향</h2>
+      <p class="mt-3 text-sm leading-relaxed text-gray-300">맵, 캐릭터 이동, 카메라처럼 따로 배운 기능을 하나의 게임으로 조합하는 과정을 처음 경험했다. 다음에는 각 기능을 직접 수정해 보며 기능들이 어떻게 연결되는지 더 깊이 이해하고 싶다.</p>
+    </section>
+  </div>
+</article>
