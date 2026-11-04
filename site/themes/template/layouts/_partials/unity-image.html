@@ -1,0 +1,16 @@
+<figure class="min-w-0">
+  {{ $src := .src | relURL }}
+  <button type="button" onclick="this.parentElement.querySelector('dialog').showModal()"
+    aria-haspopup="dialog" aria-label="{{ .caption }} 크게 보기"
+    class="block w-full cursor-zoom-in rounded-lg focus-visible:outline focus-visible:outline-indigo-300">
+    <img src="{{ $src }}" alt="{{ .alt }}" loading="lazy"
+      class="block aspect-video w-full rounded-lg bg-white/5 object-contain">
+  </button>
+  <figcaption class="mt-2 text-xs text-gray-400">{{ .caption }} · 크게 보기</figcaption>
+  <dialog aria-label="{{ .caption }}" class="m-auto max-w-[95vw] rounded-xl border border-gray-700 bg-[#070709] p-3 text-white backdrop:bg-black/80">
+    <form method="dialog" class="mb-2 flex justify-end">
+      <button autofocus class="rounded-md border border-gray-600 px-3 py-1 text-sm focus-visible:outline focus-visible:outline-indigo-300">닫기</button>
+    </form>
+    <img src="{{ $src }}" alt="{{ .alt }}" loading="lazy" class="block max-h-[75vh] max-w-full object-contain">
+  </dialog>
+</figure>

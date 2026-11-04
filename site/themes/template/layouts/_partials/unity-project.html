@@ -2,17 +2,23 @@
   <header>
     <h1 class="text-2xl font-semibold text-white sm:text-3xl">{{ .Params.detailTitle }}</h1>
     <p class="mt-2 text-sm text-gray-400">{{ .Params.subtitle }}</p>
-    <div class="mt-4 grid aspect-video place-items-center rounded-xl bg-white/5 text-center">
-      <div>
-        <p class="text-sm font-medium text-gray-200">게임 플레이 영상</p>
-        <p class="mt-1 text-xs text-gray-400">영상 준비 중</p>
-      </div>
-    </div>
+    <figure class="mt-4">
+      <video controls playsinline preload="none" aria-label="Unity 게임 플레이 영상"
+        class="block aspect-video w-full rounded-xl bg-black"
+        {{ with .Params.cover }}poster="{{ . | relURL }}"{{ end }}>
+        <source src="{{ .Params.video | relURL }}" type="video/mp4">
+      </video>
+      <figcaption class="mt-2 text-sm text-gray-400">게임 플레이 영상</figcaption>
+    </figure>
   </header>
   <div class="divide-y divide-gray-800">
     <section class="py-5">
       <h2 class="text-sm font-semibold text-white">01. 프로젝트 소개</h2>
       <p class="mt-3 text-sm leading-relaxed text-gray-300">4주간의 Unity 기초반 스터디에서 진행한 첫 게임 개발 프로젝트다. Vampire Survivors를 참고해 2D 서바이벌 게임의 기본 구조를 만들어 보았다.</p>
+      <div class="mt-3 grid gap-3 sm:grid-cols-2">
+        {{ partial "unity-image.html" (dict "src" "images/projects/unity-gameplay.png" "alt" "잔디 맵에서 플레이어와 초록색 적이 보이는 Unity 게임 화면" "caption" "직접 만든 Unity 게임") }}
+        {{ partial "unity-image.html" (dict "src" "images/projects/vampire-survivors.jpg" "alt" "박쥐 무리와 싸우는 Vampire Survivors 플레이 화면" "caption" "참고작 Vampire Survivors") }}
+      </div>
     </section>
     <section class="py-5">
       <h2 class="text-sm font-semibold text-white">02. 4주간 배운 기술</h2>
@@ -29,14 +35,7 @@
     <section class="py-5">
       <h2 class="text-sm font-semibold text-white">03. 제작 과정</h2>
       <div class="mt-3 grid gap-3 sm:grid-cols-2">
-        <figure>
-          <a href="{{ .Params.cover | relURL }}" target="_blank" rel="noopener" class="block rounded-lg focus-visible:outline focus-visible:outline-indigo-300">
-            <img src="{{ .Params.cover | relURL }}" alt="{{ .Params.coverAlt }}" width="{{ .Params.coverWidth }}" height="{{ .Params.coverHeight }}"
-              class="block aspect-[4/3] w-full rounded-lg bg-white/5 object-contain" loading="lazy">
-          </a>
-          <figcaption class="mt-2 text-xs text-gray-400">Unity 편집 화면 · 새 탭에서 원본 보기</figcaption>
-        </figure>
-        <div class="grid aspect-[4/3] place-items-center rounded-lg bg-white/5 px-3 text-center text-sm text-gray-400">게임 실행 화면 준비 중</div>
+        {{ partial "unity-image.html" (dict "src" .Params.cover "alt" .Params.coverAlt "caption" "Unity 편집 화면") }}
       </div>
     </section>
     <section class="pt-5">
