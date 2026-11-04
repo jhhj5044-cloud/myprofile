@@ -24,8 +24,8 @@
         <span class="text-gray-500 group-hover:text-indigo-300 transition-colors" aria-hidden="true">→</span>
       </div>
 
-      {{ with .Params.cover }}
-      <img src="{{ . | relURL }}" alt="Roblox 프로젝트 플레이 화면" width="1401" height="793"
+      {{ if .Params.cover }}
+      <img src="{{ .Params.cover | relURL }}" alt="{{ .Params.coverAlt | default "Roblox 프로젝트 플레이 화면" }}" width="{{ .Params.coverWidth | default 1401 }}" height="{{ .Params.coverHeight | default 793 }}"
         class="mt-4 block h-auto w-full rounded-sm">
       {{ end }}
       <p class="mt-3 text-sm sm:text-base text-gray-400 leading-relaxed">
