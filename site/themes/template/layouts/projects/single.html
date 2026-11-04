@@ -1,11 +1,82 @@
 {{ define "main" }}
 <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-12 text-gray-100">
   <a href="{{ .CurrentSection.RelPermalink }}" class="text-sm text-indigo-300 underline">← Projects</a>
+  {{ if .Params.video }}
+  <article class="mx-auto mt-6 max-w-5xl">
+    <header class="rounded-2xl border border-gray-800 bg-[#070709] p-4 sm:p-6">
+      <span class="rounded-full bg-white/10 px-2 py-1 text-xs font-medium text-gray-300">01 · 프로젝트 소개</span>
+      <h1 class="mt-2 text-3xl font-semibold text-white md:text-4xl lg:text-5xl">{{ .Params.detailTitle | default .Title }}</h1>
+      <p class="mt-3 text-lg text-indigo-300 sm:text-xl">{{ .Params.subtitle }}</p>
+      <ul aria-label="사용 기술 및 프로젝트 태그" class="mt-4 flex flex-wrap gap-2">
+        {{ range .Params.technologies }}
+        <li class="rounded-full border border-gray-700 px-3 py-1 text-xs text-gray-300 sm:text-sm">{{ . }}</li>
+        {{ end }}
+      </ul>
+      <figure class="mt-6">
+        <video controls playsinline preload="none" aria-label="게임 플레이 영상"
+          class="block aspect-video w-full rounded-lg bg-black"
+          {{ with .Params.cover }}poster="{{ . | relURL }}"{{ end }}>
+          <source src="{{ .Params.video | relURL }}" type="video/mp4">
+        </video>
+        <figcaption class="mt-2 text-sm text-gray-400">게임 플레이 영상</figcaption>
+      </figure>
+      <p class="mt-5 max-w-3xl text-sm leading-relaxed text-gray-300">{{ .Params.intro }}</p>
+    </header>
+
+    <div class="divide-y divide-gray-800">
+      {{ range $index, $section := .Params.sections }}
+      <section class="py-6 sm:py-7">
+        <span class="rounded-full bg-white/10 px-2 py-1 text-xs font-medium text-gray-300">{{ printf "%02d" (add $index 2) }} · {{ .label }}</span>
+        <h2 class="mt-2 text-xl font-semibold leading-snug text-white sm:text-2xl">{{ .heading }}</h2>
+        {{ with .paragraphs }}
+        <div class="mt-2 space-y-2 text-sm leading-relaxed text-gray-300">
+          {{ range . }}<p>{{ . }}</p>{{ end }}
+        </div>
+        {{ end }}
+        {{ with .images }}
+        <div class="mt-5 grid gap-4 md:grid-cols-2">
+          {{ range . }}
+          <figure>
+            <button type="button" onclick="this.parentElement.querySelector('dialog').showModal()"
+              class="block w-full cursor-zoom-in rounded-lg focus-visible:outline focus-visible:outline-indigo-300" aria-label="{{ .caption }} 크게 보기" aria-haspopup="dialog">
+              <img src="{{ .src | relURL }}" alt="{{ .alt }}" loading="lazy" width="{{ .width | default 1919 }}" height="{{ .height | default 1030 }}"
+                class="block h-auto w-full rounded-lg border border-gray-800">
+            </button>
+            <figcaption class="mt-2 text-sm text-gray-400">{{ .caption }} · 크게 보기</figcaption>
+            <dialog aria-label="{{ .caption }}" class="m-auto max-w-[95vw] rounded-xl border border-gray-700 bg-[#070709] p-3 text-white backdrop:bg-black/80">
+              <form method="dialog" class="mb-2 flex justify-end">
+                <button autofocus class="rounded-md border border-gray-600 px-3 py-1 text-sm focus-visible:outline focus-visible:outline-indigo-300">닫기</button>
+              </form>
+              <img src="{{ .src | relURL }}" alt="{{ .alt }}" loading="lazy" class="block max-h-[75vh] max-w-full object-contain">
+            </dialog>
+          </figure>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ with .cards }}
+        <div class="mt-2 divide-y divide-gray-800 rounded-xl bg-white/5 px-3 sm:px-4">
+          {{ range . }}
+          <div class="py-3 sm:py-4">
+            <h3 class="text-sm font-medium text-white">{{ .heading }}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-300">{{ .text }}</p>
+          </div>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ with .quote }}
+        <blockquote class="mt-3 rounded-lg bg-white/5 px-3 py-3 text-sm font-medium leading-relaxed text-indigo-200">{{ . }}</blockquote>
+        {{ end }}
+      </section>
+      {{ end }}
+    </div>
+  </article>
+  {{ else }}
   <h1 class="mt-4 text-2xl sm:text-3xl md:text-4xl tracking-wide text-white">{{ .Title }}</h1>
   {{ with .Content }}
   <div class="md-surface mt-6 border border-gray-800/70 bg-[#070709] rounded-sm p-4 sm:p-6">
     <div class="md-content">{{ . }}</div>
   </div>
+  {{ end }}
   {{ end }}
 </main>
 {{ end }}
