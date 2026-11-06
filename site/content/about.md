@@ -1,8 +1,8 @@
 +++
 title = "About"
 type = "about"
-intro = ["안녕하세요. yujinho입니다.","게임 개발과 AI 기술을 활용한 콘텐츠 제작에 관심이 있습니다."]
-keywords = ["Game Development", "AI Content", "Software", "Security"]
+intro = ["안녕하세요. 유진호입니다.","게임 개발과 AI 기술을 활용한 콘텐츠 제작에 관심이 있습니다."]
+keywords = ["Game Development", "AI Content", "Software"]
 interests = ["특히 현실에서 경험한 상황을 게임으로 구현하는 과정에 흥미를 느낍니다. 단순히 게임을 플레이하는 것을 넘어, 직접 게임 시스템을 설계하고 현실적인 움직임과 상호작용을 구현해 보고 싶습니다.","최근에는 생성형 AI를 활용한 3D 모델링과 애니메이션 제작에도 관심을 가지고 있습니다."]
 goalTitle = "AI를 활용한 3D 모델링 및 게임 애니메이션 제작"
 goalIntro = ["군 복무 중 경험했던 예초 작업을 소재로, '징집병 예초 시뮬레이터' 게임을 제작해 보고 싶습니다.","특히 실제 예초기의 구조와 작동 방식을 게임 속에서 현실감 있게 구현하는 것이 목표입니다."]
