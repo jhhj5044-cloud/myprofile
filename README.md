@@ -75,9 +75,9 @@ git push origin main
 - **프로젝트 기록** — Roblox·Unity 프로젝트의 편집 화면, 플레이 화면과 영상은 제작 결과를 보여주는 캡처입니다. Roblox 프로젝트 개발 과정에는 생성형 AI를 활용했습니다.
 - **프로필 이미지** — [Lorem Picsum](https://picsum.photos/)의 동적 이미지를 `site/hugo.toml`에서 불러옵니다. 특정 사진의 원작자와 개별 이용 조건은 확인하지 않았습니다.
 
-| 외부 자료 | 사용 위치와 참고 링크 | 확인 상태 |
-|---|---|---|
-| [Superfighters 스크린샷](site/static/images/projects/superfighters.png) | Roblox 상세 페이지의 제작 동기 · [MythoLogic Interactive](https://mythologicinteractive.com/) | 이미지의 직접 다운로드 URL과 재사용 조건 미확인 |
-| [Vampire Survivors 스크린샷](site/static/images/projects/vampire-survivors.jpg) | Unity 상세 페이지의 프로젝트 소개 · [공식 Steam 제품 페이지](https://store.steampowered.com/app/1794680/Vampire_Survivors/) | 이미지의 직접 다운로드 URL과 재사용 조건 미확인 |
+| 외부 자료 | 사용 위치와 이미지 출처 |
+|---|---|
+| [Superfighters 스크린샷](site/static/images/projects/superfighters.png) | Roblox 상세 페이지의 제작 동기 · [네이버 블로그 게시글](https://m.blog.naver.com/gilja0525/221735310113) |
+| [Vampire Survivors 스크린샷](site/static/images/projects/vampire-survivors.jpg) | Unity 상세 페이지의 프로젝트 소개 · [Vampire Survivors Steam 상점 페이지](https://store.steampowered.com/app/1794680/Vampire_Survivors/) |
 
-게임 링크는 작품을 소개하는 참고 링크입니다. 외부 이미지와 게임 자산에는 테마의 MIT 라이선스가 적용된다고 가정하지 않으며, 재사용하려면 해당 자료의 출처와 이용 조건을 따로 확인해야 합니다.
+외부 이미지와 게임 자산에는 테마의 MIT 라이선스가 적용된다고 가정하지 않으며, 재사용하려면 해당 자료의 출처와 이용 조건을 따로 확인해야 합니다.
