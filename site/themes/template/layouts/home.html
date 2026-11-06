@@ -18,5 +18,38 @@
     {{ partial "project-cards.html" . }}
   </section>
   {{ end }}
+  <section id="contact" aria-labelledby="contact-title"
+    class="scroll-mt-24 rounded-2xl border border-gray-800 bg-[#131519] p-4 font-sans sm:p-6">
+    <p class="text-xs font-semibold text-gray-400">04 / CONTACT</p>
+    <h2 id="contact-title" class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Let's connect.</h2>
+    <p class="mt-2 text-sm leading-relaxed text-gray-300">프로젝트에 대한 의견이나 협업 제안은 언제든 환영합니다.</p>
+
+    {{ $contacts := slice
+      (dict "name" "GitHub" "description" "코드 및 개발 프로젝트" "icon" "fa-brands fa-github" "url" "https://github.com/jhhj5044-cloud/myprofile")
+      (dict "name" "Email" "description" "문의 및 연락" "icon" "fa-regular fa-envelope")
+      (dict "name" "Roblox" "description" "게임 개발 활동 및 프로필" "icon" "fa-solid fa-gamepad")
+    }}
+    <ul class="my-5 space-y-1 border-y border-gray-700 py-4">
+      {{ range $contacts }}
+      <li>
+        {{ with .url }}
+        <a href="{{ . }}" class="flex items-center gap-3 rounded-lg py-1.5 hover:bg-white/5 focus-visible:outline focus-visible:outline-indigo-300">
+        {{ else }}
+        <div class="flex items-center gap-3 py-1.5">
+        {{ end }}
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#20252d] text-base text-white" aria-hidden="true">
+            <i class="{{ .icon }}"></i>
+          </span>
+          <span class="min-w-0 flex-1">
+            <span class="block text-sm font-semibold text-white">{{ .name }}</span>
+            <span class="mt-1 block text-xs text-gray-400">{{ .description }}</span>
+          </span>
+          {{ if .url }}<span class="pr-1 text-sm text-gray-400" aria-hidden="true">↗</span>{{ end }}
+        {{ if .url }}</a>{{ else }}</div>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+    <p class="text-xs text-gray-400">© {{ now.Year }} {{ site.Title }}</p>
+  </section>
 </div>
 {{ end }}
