@@ -31,6 +31,33 @@
     }}
     <ul class="my-5 space-y-1 border-y border-gray-700 py-4">
       {{ range $contacts }}
+      {{ if eq .name "Email" }}
+      <li class="rounded-xl border border-gray-700 p-3">
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="{{ .url }}" class="flex min-w-0 flex-1 items-center gap-3 rounded-lg focus-visible:outline focus-visible:outline-indigo-300">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#20252d] text-white" aria-hidden="true">
+              <i class="{{ .icon }}"></i>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-sm font-semibold text-white">{{ .name }}</span>
+              <span class="mt-1 block break-all text-xs text-gray-400">{{ .description }}</span>
+            </span>
+          </a>
+          <div class="flex w-full gap-2 sm:w-auto">
+            <a href="{{ .url }}" class="inline-flex min-h-11 items-center gap-2 rounded-full border border-gray-600 px-3 text-xs text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-indigo-300">
+              <i class="fa-regular fa-paper-plane" aria-hidden="true"></i> 메일
+            </a>
+            <button type="button" data-email="{{ .description }}"
+              onclick="const button = this; const status = button.closest('li').querySelector('[role=status]'); (async () => { try { await navigator.clipboard.writeText(button.dataset.email); status.textContent = '이메일 주소를 복사했어요.'; } catch { status.textContent = '복사하지 못했어요. 위 주소를 길게 누르거나 선택해 복사해 주세요.'; } })();"
+              aria-label="이메일 주소 복사"
+              class="inline-flex min-h-11 items-center gap-2 rounded-full border border-gray-600 px-3 text-xs text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-indigo-300">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i> 복사
+            </button>
+          </div>
+        </div>
+        <p role="status" class="mt-2 text-xs text-gray-300 empty:mt-0"></p>
+      </li>
+      {{ else }}
       <li>
         {{ with .url }}
         <a href="{{ . }}" class="flex items-center gap-3 rounded-lg py-1.5 hover:bg-white/5 focus-visible:outline focus-visible:outline-indigo-300">
@@ -47,6 +74,7 @@
           {{ if .url }}<span class="pr-1 text-sm text-gray-400" aria-hidden="true">↗</span>{{ end }}
         {{ if .url }}</a>{{ else }}</div>{{ end }}
       </li>
+      {{ end }}
       {{ end }}
     </ul>
     <p class="text-xs text-gray-400">© {{ now.Year }} {{ site.Title }}</p>
