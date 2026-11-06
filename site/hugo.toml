@@ -5,13 +5,8 @@ title = "yujinho"
 
 [menus]
   [[menus.main]]
-    name = 'Blog'
-    pageRef = '/blog'
-    weight = 10
-
-  [[menus.main]]
-    name = 'Personal'
-    pageRef = '/personal'
+    name = 'About'
+    pageRef = '/about'
     weight = 20
 
   [[menus.main]]
