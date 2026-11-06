@@ -68,7 +68,10 @@
       {{ end }}
       {{ end }}
     </ul>
-    <p class="text-xs text-gray-400">© {{ now.Year }} {{ site.Title }}</p>
+    <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
+      <span>© {{ now.Year }} {{ site.Title }}</span>
+      <span>Made with <a href="https://gohugo.io/" class="underline hover:text-blue-200">Hugo</a> · <a href="https://github.com/Enerhim/enervoid-theme" class="underline hover:text-blue-200">Enervoid</a></span>
+    </p>
   </section>
 </div>
 {{ end }}
