@@ -1,10 +1,5 @@
 {{ define "main" }}
-<style>
-  @media (prefers-reduced-motion: no-preference) {
-    html { scroll-behavior: smooth; }
-  }
-</style>
-<div class="mx-auto max-w-6xl space-y-8 pt-12 sm:space-y-10">
+<div class="mx-auto max-w-6xl space-y-8 sm:space-y-10">
   {{ with site.GetPage "/about" }}{{ partial "about-profile.html" . }}{{ end }}
 
   {{ with site.GetPage "/projects" }}

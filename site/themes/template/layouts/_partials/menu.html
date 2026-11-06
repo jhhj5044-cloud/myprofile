@@ -16,10 +16,7 @@ Renders a responsive list of menu items with Tailwind classes.
     {{- $href := .URL -}}
     {{- $attrs := dict -}}
     {{- if hasPrefix $href "#" -}}
-      {{- if not $page.IsHome -}}
-        {{- $href = printf "%s%s" site.Home.RelPermalink $href -}}
-      {{- end -}}
-      {{- $attrs = dict "href" $href "data-no-swup" "true" -}}
+{{- $attrs = dict "href" (printf "%s%s" site.Home.RelPermalink $href) "data-section" (strings.TrimPrefix "#" $href) "data-no-swup" "true" -}}
     {{- else -}}
       {{- $attrs = dict "href" ($href | relURL) -}}
     {{- end -}}
