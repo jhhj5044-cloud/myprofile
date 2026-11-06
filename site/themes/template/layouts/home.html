@@ -1,25 +1,22 @@
 {{ define "main" }}
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+</style>
+<div class="mx-auto max-w-6xl space-y-8 pt-12 sm:space-y-10">
+  <section id="about" aria-labelledby="about-title" class="scroll-mt-24 rounded-sm border border-gray-800 bg-[#070709] p-5 sm:p-8">
+    <h1 id="about-title" class="text-2xl font-semibold tracking-wide text-blue-200 sm:text-3xl">About Me</h1>
+    <div class="md-content mt-3 text-base leading-relaxed text-gray-300">
+      {{ with site.GetPage "page" "about.md" }}{{ .Content }}{{ end }}
+    </div>
+  </section>
 
-<section class="relative border border-gray-200 bg-[#070709] rounded-sm p-8 md:p-12 text-gray-300">
-
-  <!-- Heading -->
-  <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-blue-200 mb-6 tracking-wide">
-    About Me
-    <!-- <span class="inline-block mr-3" style="animation: flicker 1.8s steps(2,end) infinite;">_</span> -->
-  </h1>
-
-  <!-- Content -->
-  <div class="space-y-6 sm:text-lg md:text-xl lg:text-2xl leading-relaxed [&_a]:text-blue-200
-            [&_a]:underline
-            [&_a:hover]:text-blue-100
-            [&_a]:transition-colors
-            [&_a]:duration-200">
-
-    {{ with site.GetPage "page" "about.md"}}
-    {{ .Content}}
-    {{ end }}
-
-  </div>
-
-</section>
+  {{ with site.GetPage "/projects" }}
+  <section id="projects" aria-labelledby="projects-title" class="scroll-mt-24">
+    <h2 id="projects-title" class="mb-4 text-2xl font-semibold tracking-wide text-blue-200 sm:text-3xl">{{ .Title }}</h2>
+    {{ partial "project-cards.html" . }}
+  </section>
+  {{ end }}
+</div>
 {{ end }}

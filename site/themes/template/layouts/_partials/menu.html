@@ -11,9 +11,18 @@ Renders a responsive list of menu items with Tailwind classes.
 {{/* Desktop menu (rendered when used inside header.html) and mobile (same markup; visibility controlled by parent) */}}
 <nav aria-label="Primary" class="w-full">
   <ul
-    class="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-2 md:space-y-0 sm:text-lg md:text-xl lg:text-3xl">
+    class="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-2 md:space-y-0 text-base md:text-lg">
     {{- range . }}
-    {{- $attrs := dict "href" (.URL | relURL) -}}
+    {{- $href := .URL -}}
+    {{- $attrs := dict -}}
+    {{- if hasPrefix $href "#" -}}
+      {{- if not $page.IsHome -}}
+        {{- $href = printf "%s%s" site.Home.RelPermalink $href -}}
+      {{- end -}}
+      {{- $attrs = dict "href" $href "data-no-swup" "true" -}}
+    {{- else -}}
+      {{- $attrs = dict "href" ($href | relURL) -}}
+    {{- end -}}
     {{- if $page.IsMenuCurrent .Menu . }}
     {{- $attrs = merge $attrs (dict "aria-current" "page") -}}
     {{- else if $page.HasMenuCurrent .Menu . }}

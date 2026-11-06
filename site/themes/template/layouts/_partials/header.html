@@ -92,6 +92,11 @@
       const btn = document.getElementById('nav-toggle');
       const menu = document.getElementById('mobile-menu');
       if (!btn || !menu) return;
+      menu.addEventListener('click', (event) => {
+        if (!event.target.closest('a')) return;
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      });
       btn.addEventListener('click', () => {
         const open = menu.classList.toggle('hidden') === false;
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
