@@ -3,8 +3,11 @@
   {{ with site.GetPage "/about" }}{{ partial "about-profile.html" . }}{{ end }}
 
   {{ with site.GetPage "/projects" }}
-  <section id="projects" aria-labelledby="projects-title" class="scroll-mt-24">
-    <h2 id="projects-title" class="mb-4 text-2xl font-semibold tracking-wide text-blue-200 sm:text-3xl">{{ .Title }}</h2>
+  <section id="projects" aria-labelledby="projects-title" class="scroll-mt-24 rounded-2xl border border-gray-800 bg-[#090a0e] p-4 sm:p-5">
+    <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+      <h2 id="projects-title" class="text-2xl font-semibold tracking-wide text-blue-200 sm:text-3xl">{{ .Title }}</h2>
+      <span class="text-sm tracking-wide text-gray-400">SELECTED WORK</span>
+    </div>
     {{ partial "project-cards.html" . }}
   </section>
   {{ end }}

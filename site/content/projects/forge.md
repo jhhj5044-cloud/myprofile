@@ -8,6 +8,14 @@ video = "videos/projects/roblox-gameplay.mp4"
 technologies = ["Roblox Studio", "Lua", "AI-assisted Development", "바이브코딩 스터디", "Prototype"]
 intro = "동아리 바이브코딩 스터디에서 진행한 개인 프로젝트다. 게임 개발 지식이 거의 없는 상태에서 생성형 AI의 도움만으로 어디까지 구현할 수 있을지 궁금해 시작했다. 완성된 게임을 만드는 것뿐만 아니라 AI를 활용한 개발 과정 자체를 경험하는 것이 목적이었다."
 
+featured = true
+cardTitle = "Super Fighters"
+cardStack = "Roblox Studio · Luau"
+cardPeriod = "2026.09 ~ 현재"
+cardStatus = "진행 중"
+cardDescription = "3인칭 전투와 다양한 무기 조작을 구현한 슈팅 프로토타입"
+cardTags = ["Game Dev", "TPS"]
+
 [[sections]]
 heading = "왜 슈퍼 파이터스였을까?"
 label = "제작 동기"

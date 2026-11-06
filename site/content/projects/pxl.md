@@ -11,4 +11,6 @@ subtitle = "첫 게임 개발 프로젝트 · 4주 기초반 스터디"
 skills = ["맵 구성", "캐릭터 이동", "애니메이션", "카메라", "충돌·스폰", "사운드"]
 
 video = "videos/projects/unity-gameplay.mp4"
+cardStack = "Unity · C#"
+cardDescription = "4주 기초반 스터디에서 만든 2D 서바이벌 게임"
 +++
